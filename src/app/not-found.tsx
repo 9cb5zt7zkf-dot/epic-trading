@@ -8,7 +8,7 @@ export default function NotFound() {
         <span className="font-display text-[13px] uppercase tracking-[0.2em] text-gold-400">404</span>
         <h1 className="mt-4 font-display text-display-md font-medium">Page not found.</h1>
         <p className="mt-4 mx-auto max-w-md text-[15.5px] text-sand-300">
-          The page you're looking for may have moved. Try one of the links below.
+          The page you&rsquo;re looking for may have moved. Try one of the links below.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <ButtonLink href="/">Return Home</ButtonLink>
