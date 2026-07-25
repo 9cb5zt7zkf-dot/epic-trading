@@ -37,7 +37,8 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {
-            const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+            const href: string = link.href;
+            const active = pathname === href || (href !== "/" && pathname.startsWith(href));
             return (
               <Link
                 key={link.href}
