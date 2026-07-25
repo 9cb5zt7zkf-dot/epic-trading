@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand-50 text-ink-900 antialiased;
+    font-feature-settings: "ss01" on;
+  }
+
+  html.dark body {
+    @apply bg-forest-950 text-sand-100;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-forest-950;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.gold.500");
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-grain-overlay {
+    background-image: theme("backgroundImage.grain");
+    mix-blend-mode: overlay;
+  }
+
+  .skip-link {
+    @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-medium text-forest-950 transition-transform focus:translate-y-0;
+  }
+}
