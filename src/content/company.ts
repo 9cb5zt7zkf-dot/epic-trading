@@ -27,8 +27,9 @@ export const COMPANY = {
 
   // Direct contact channels — left null until confirmed so the site never
   // displays or submits enquiries to an unverified address.
-  email: null as string | null,
-  phone: null as string | null,
+  email: "info@epictrading.et" as string | null,
+  phone: "+251956780367" as string | null,
+  phoneSecondary: "+251922494389" as string | null,
   whatsapp: null as string | null,
 
   social: {

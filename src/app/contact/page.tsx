@@ -55,6 +55,11 @@ export default function ContactPage() {
               <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="mt-2 block text-[15px] text-sand-50 hover:text-gold-300">
                 {COMPANY.phone}
               </a>
+              {COMPANY.phoneSecondary && (
+                <a href={`tel:${COMPANY.phoneSecondary.replace(/\s/g, "")}`} className="mt-1 block text-[15px] text-sand-50 hover:text-gold-300">
+                  {COMPANY.phoneSecondary}
+                </a>
+              )}
             </div>
           )}
 

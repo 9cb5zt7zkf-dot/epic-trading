@@ -64,6 +64,9 @@ export function Footer() {
               {COMPANY.phone && (
                 <li><a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-[14.5px] text-sand-300 hover:text-sand-50">{COMPANY.phone}</a></li>
               )}
+              {COMPANY.phoneSecondary && (
+                <li><a href={`tel:${COMPANY.phoneSecondary.replace(/\s/g, "")}`} className="text-[14.5px] text-sand-300 hover:text-sand-50">{COMPANY.phoneSecondary}</a></li>
+              )}
               {!hasDirectContact && (
                 <li className="text-[14.5px] text-sand-300">
                   Direct contact details are being published shortly. Please use the enquiry form.
