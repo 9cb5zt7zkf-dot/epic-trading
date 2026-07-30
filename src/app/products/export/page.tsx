@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EXPORT_PRODUCTS } from "@/content/products";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Container";
@@ -6,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CTASection } from "@/components/sections/CTASection";
 import { buildMetadata } from "@/lib/metadata";
+import { hasPublicImage } from "@/lib/media";
 
 export const metadata: Metadata = buildMetadata({
   title: "Export Products",
@@ -17,8 +19,14 @@ export const metadata: Metadata = buildMetadata({
 export default function ExportProductsPage() {
   return (
     <>
-      <section className="bg-forest-950 pb-16 pt-16 text-sand-50">
-        <Container>
+      <section className="relative overflow-hidden bg-forest-950 pb-16 pt-16 text-sand-50">
+        <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+        />
+        <Container className="relative">
           <Breadcrumbs tone="light" items={[{ label: "Home", href: "/" }, { label: "Export Products" }]} />
           <h1 className="mt-6 max-w-3xl font-display text-display-lg font-medium">Export Products</h1>
           <p className="mt-5 max-w-2xl text-[16.5px] leading-relaxed text-sand-300">
@@ -29,13 +37,21 @@ export default function ExportProductsPage() {
 
       <section className="bg-sand-50 py-20 dark:bg-forest-950">
         <Container className="space-y-16">
-          {EXPORT_PRODUCTS.map((group) => (
+          {EXPORT_PRODUCTS.map((group) => {
+            const showImage = hasPublicImage(group.image);
+            return (
             <Reveal key={group.id}>
               <div id={group.id} className="scroll-mt-28 grid gap-8 lg:grid-cols-[1fr_2fr]">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-forest-900 text-gold-400 dark:bg-gold-500/15 dark:text-gold-400">
-                    <Icon name={group.icon as IconName} className="h-6 w-6" />
-                  </div>
+                  {showImage ? (
+                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
+                      <Image src={group.image as string} alt="" fill sizes="48px" className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-forest-900 text-gold-400 dark:bg-gold-500/15 dark:text-gold-400">
+                      <Icon name={group.icon as IconName} className="h-6 w-6" />
+                    </div>
+                  )}
                   <h2 className="font-display text-[1.4rem] font-medium text-ink-900 dark:text-sand-50">{group.title}</h2>
                 </div>
                 <ul className="grid gap-3 sm:grid-cols-2">
@@ -51,7 +67,8 @@ export default function ExportProductsPage() {
                 </ul>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </Container>
       </section>
 

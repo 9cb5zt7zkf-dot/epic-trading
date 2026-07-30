@@ -17,8 +17,14 @@ export const metadata: Metadata = buildMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-forest-950 pb-16 pt-16 text-sand-50">
-        <Container>
+      <section className="relative overflow-hidden bg-forest-950 pb-16 pt-16 text-sand-50">
+        <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+        />
+        <Container className="relative">
           <Breadcrumbs tone="light" items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           <h1 className="mt-6 max-w-3xl font-display text-display-lg font-medium">Services</h1>
           <p className="mt-5 max-w-2xl text-[16.5px] leading-relaxed text-sand-300">
@@ -33,7 +39,7 @@ export default function ServicesPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => (
               <Reveal key={service.slug} delay={(i % 3) * 0.06}>
-                <div className="h-full rounded-2xl border border-ink-900/8 bg-sand-100/60 p-7 dark:border-sand-100/8 dark:bg-forest-900/60">
+                <div className="h-full rounded-2xl border border-ink-900/8 bg-sand-100/60 p-7 transition-colors duration-300 hover:border-gold-500/40 dark:border-sand-100/8 dark:bg-forest-900/60">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 text-gold-400 dark:bg-gold-500/15 dark:text-gold-400">
                     <Icon name={service.icon as IconName} className="h-5 w-5" />
                   </div>

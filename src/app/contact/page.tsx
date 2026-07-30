@@ -18,8 +18,14 @@ export default function ContactPage() {
   const hasDirectContact = Boolean(COMPANY.email || COMPANY.phone);
 
   return (
-    <section className="bg-forest-950 py-20 text-sand-50">
-      <Container className="max-w-3xl">
+    <section className="relative overflow-hidden bg-forest-950 py-20 text-sand-50">
+      <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+      />
+      <Container className="relative max-w-3xl">
         <Breadcrumbs tone="light" items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
         <h1 className="mt-6 font-display text-display-lg font-medium">Contact Epic Trading</h1>
         <p className="mt-5 text-[16.5px] leading-relaxed text-sand-300">

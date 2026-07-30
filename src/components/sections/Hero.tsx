@@ -1,20 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/Button";
 import { WorldRoutesGraphic } from "@/components/sections/WorldRoutesGraphic";
 
-export function Hero() {
+export function Hero({ heroImage }: { heroImage?: string }) {
   return (
     <section className="relative overflow-hidden bg-forest-950 text-sand-50">
       {/* Editorial gradient + grain treatment stands in for photography until
-          real production photography is available — see project README. */}
+          real production photography is available — see project README.
+          Once heroImage is supplied (see app/page.tsx), it renders behind the
+          same gradient + grain so the treatment stays consistent either way. */}
+      {heroImage && (
+        <Image
+          src={heroImage}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-45"
+        />
+      )}
       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 82% 15%, rgba(201,162,39,0.16), transparent 60%), radial-gradient(50% 40% at 10% 90%, rgba(47,114,80,0.35), transparent 60%)",
+            "radial-gradient(60% 50% at 82% 15%, rgba(201,162,39,0.16), transparent 60%), radial-gradient(50% 40% at 10% 90%, rgba(47,114,80,0.35), transparent 60%), linear-gradient(180deg, rgba(8,29,22,0.55) 0%, rgba(8,29,22,0.85) 100%)",
         }}
       />
       <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />

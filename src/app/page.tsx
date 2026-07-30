@@ -12,6 +12,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { TRADE_PROCESS_STEPS } from "@/content/process";
 import { buildMetadata } from "@/lib/metadata";
+import { hasPublicImage } from "@/lib/media";
+
+const HERO_IMAGE = "/images/hero-port.jpg";
 
 export const metadata: Metadata = buildMetadata({
   title: "Epic Trading PLC — Connecting Ethiopia to Global Markets",
@@ -23,7 +26,7 @@ export const metadata: Metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <Hero heroImage={hasPublicImage(HERO_IMAGE) ? HERO_IMAGE : undefined} />
 
       <section className="bg-sand-50 py-24 dark:bg-forest-950">
         <Container>

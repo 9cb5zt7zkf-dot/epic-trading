@@ -16,7 +16,11 @@ export function WhyEpicTrading() {
   return (
     <div className="grid gap-px overflow-hidden rounded-2xl border border-ink-900/8 bg-ink-900/8 dark:border-sand-100/8 dark:bg-sand-100/8 sm:grid-cols-2 lg:grid-cols-4">
       {STRENGTHS.map((item, i) => (
-        <Reveal key={item.title} delay={(i % 4) * 0.07} className="bg-sand-50 p-7 dark:bg-forest-950">
+        <Reveal
+          key={item.title}
+          delay={(i % 4) * 0.07}
+          className="bg-sand-50 p-7 transition-colors duration-300 hover:bg-sand-100 dark:bg-forest-950 dark:hover:bg-forest-900/70"
+        >
           <Icon name={item.icon} className="h-6 w-6 text-gold-600 dark:text-gold-400" />
           <h3 className="mt-5 text-[15px] font-semibold text-ink-900 dark:text-sand-50">{item.title}</h3>
           <p className="mt-2 text-[13.5px] leading-relaxed text-ink-700 dark:text-sand-300">{item.detail}</p>

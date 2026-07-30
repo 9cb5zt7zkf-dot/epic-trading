@@ -12,6 +12,9 @@ export type Division = {
   points: string[];
   relatedProductsHref?: string;
   enquiryCategory: string; // slug into content/enquiryForms.ts
+  // Path relative to /public. Only rendered once the file actually exists on
+  // disk (see lib/media.ts) — safe to reference ahead of the photo landing.
+  image?: string;
 };
 
 export const DIVISIONS: Division[] = [
@@ -30,6 +33,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/export#coffee",
     enquiryCategory: "coffee",
+    image: "/images/division-coffee.jpg",
   },
   {
     slug: "sesame-export",
@@ -46,6 +50,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/export#sesame",
     enquiryCategory: "commodity",
+    image: "/images/division-sesame.jpg",
   },
   {
     slug: "agricultural-commodities",
@@ -62,6 +67,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/export#agricultural-products",
     enquiryCategory: "commodity",
+    image: "/images/division-agri.jpg",
   },
   {
     slug: "livestock-meat",
@@ -78,6 +84,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/export#livestock",
     enquiryCategory: "commodity",
+    image: "/images/division-livestock.jpg",
   },
   {
     slug: "construction-materials",
@@ -94,6 +101,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/import#construction-materials",
     enquiryCategory: "construction",
+    image: "/images/division-construction.jpg",
   },
   {
     slug: "machinery-equipment",
@@ -110,6 +118,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/import#machinery",
     enquiryCategory: "machinery",
+    image: "/images/division-machinery.jpg",
   },
   {
     slug: "vehicle-trading",
@@ -126,6 +135,7 @@ export const DIVISIONS: Division[] = [
     ],
     relatedProductsHref: "/products/import#vehicles",
     enquiryCategory: "vehicles",
+    image: "/images/division-vehicles.jpg",
   },
   {
     slug: "international-procurement",
@@ -141,6 +151,7 @@ export const DIVISIONS: Division[] = [
       "A single point of contact per engagement",
     ],
     enquiryCategory: "procurement",
+    image: "/images/division-procurement.jpg",
   },
   {
     slug: "product-sourcing",
@@ -156,6 +167,7 @@ export const DIVISIONS: Division[] = [
       "Production monitoring coordination",
     ],
     enquiryCategory: "procurement",
+    image: "/images/division-sourcing.jpg",
   },
   {
     slug: "cargo-coordination",
@@ -171,6 +183,7 @@ export const DIVISIONS: Division[] = [
       "Customs coordination",
     ],
     enquiryCategory: "logistics",
+    image: "/images/division-cargo.jpg",
   },
 ];
 

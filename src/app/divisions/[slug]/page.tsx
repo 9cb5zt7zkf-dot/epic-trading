@@ -46,8 +46,14 @@ export default function DivisionDetailPage({ params }: { params: { slug: string 
     <>
       <JsonLd data={serviceSchema} />
 
-      <section className="bg-forest-950 pb-16 pt-16 text-sand-50">
-        <Container>
+      <section className="relative overflow-hidden bg-forest-950 pb-16 pt-16 text-sand-50">
+        <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+        />
+        <Container className="relative">
           <Breadcrumbs
             tone="light"
             items={[{ label: "Home", href: "/" }, { label: "Divisions", href: "/divisions" }, { label: division.name }]}

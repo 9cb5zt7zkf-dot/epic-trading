@@ -15,8 +15,14 @@ export const metadata: Metadata = buildMetadata({
 export default function DivisionsPage() {
   return (
     <>
-      <section className="bg-forest-950 pb-16 pt-16 text-sand-50">
-        <Container>
+      <section className="relative overflow-hidden bg-forest-950 pb-16 pt-16 text-sand-50">
+        <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+        />
+        <Container className="relative">
           <Breadcrumbs tone="light" items={[{ label: "Home", href: "/" }, { label: "Divisions" }]} />
           <h1 className="mt-6 max-w-3xl font-display text-display-lg font-medium">Core Business Divisions</h1>
           <p className="mt-5 max-w-2xl text-[16.5px] leading-relaxed text-sand-300">

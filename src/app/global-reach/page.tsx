@@ -38,7 +38,7 @@ export default function GlobalReachPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {REGIONS.map((region, i) => (
               <Reveal key={region.id} delay={(i % 3) * 0.07}>
-                <div className="h-full rounded-2xl border border-ink-900/8 bg-sand-100/60 p-7 dark:border-sand-100/8 dark:bg-forest-900/60">
+                <div className="h-full rounded-2xl border border-ink-900/8 bg-sand-100/60 p-7 transition-colors duration-300 hover:border-gold-500/40 dark:border-sand-100/8 dark:bg-forest-900/60">
                   <h2 className="font-display text-[1.1rem] font-medium text-ink-900 dark:text-sand-50">{region.name}</h2>
                   <p className="mt-2.5 text-[14px] leading-relaxed text-ink-700 dark:text-sand-300">{region.note}</p>
                 </div>

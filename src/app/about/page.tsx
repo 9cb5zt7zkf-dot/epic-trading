@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -8,6 +9,9 @@ import { WhyEpicTrading } from "@/components/sections/WhyEpicTrading";
 import { CTASection } from "@/components/sections/CTASection";
 import { buildMetadata } from "@/lib/metadata";
 import { COMPANY } from "@/content/company";
+import { hasPublicImage } from "@/lib/media";
+
+const ABOUT_IMAGE = "/images/about-team.jpg";
 
 export const metadata: Metadata = buildMetadata({
   title: "About",
@@ -28,10 +32,18 @@ const VALUES: { title: string; icon: IconName }[] = [
 ];
 
 export default function AboutPage() {
+  const showAboutImage = hasPublicImage(ABOUT_IMAGE);
+
   return (
     <>
-      <section className="bg-forest-950 pb-16 pt-16 text-sand-50">
-        <Container>
+      <section className="relative overflow-hidden bg-forest-950 pb-16 pt-16 text-sand-50">
+        <div aria-hidden="true" className="absolute inset-0 bg-grain-overlay" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(55% 45% at 85% 10%, rgba(201,162,39,0.14), transparent 60%)" }}
+        />
+        <Container className="relative">
           <Breadcrumbs tone="light" items={[{ label: "Home", href: "/" }, { label: "About" }]} />
           <h1 className="mt-6 max-w-3xl font-display text-display-lg font-medium">About Epic Trading</h1>
           <p className="mt-5 max-w-2xl text-[16.5px] leading-relaxed text-sand-300">
@@ -41,6 +53,22 @@ export default function AboutPage() {
           </p>
         </Container>
       </section>
+
+      {showAboutImage && (
+        <section className="bg-sand-50 pt-16 dark:bg-forest-950">
+          <Container>
+            <Reveal className="relative h-[260px] w-full overflow-hidden rounded-2xl shadow-card sm:h-[340px] lg:h-[420px]">
+              <Image
+                src={ABOUT_IMAGE}
+                alt="Epic Trading team coordinating a trade engagement"
+                fill
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                className="object-cover"
+              />
+            </Reveal>
+          </Container>
+        </section>
+      )}
 
       <section className="bg-sand-50 py-20 dark:bg-forest-950">
         <Container className="grid gap-10 lg:grid-cols-2">
