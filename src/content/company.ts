@@ -41,7 +41,7 @@ export const COMPANY = {
   // Used for canonical URLs, sitemap, and JSON-LD. Set once the production
   // domain is confirmed; falls back to a clearly non-production placeholder
   // so nothing is silently published under a wrong domain.
-  domain: null as string | null,
+  domain: "epicettrading.com" as string | null,
 } as const;
 
 export const SITE_FALLBACK_DOMAIN = "epic-trading.example";
