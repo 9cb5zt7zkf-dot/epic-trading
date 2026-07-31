@@ -35,7 +35,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Primary">
           {NAV_LINKS.map((link) => {
             const href: string = link.href;
             const active = pathname === href || (href !== "/" && pathname.startsWith(href));
@@ -44,11 +44,11 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className={cx(
-                  "text-[14.5px] font-medium transition-colors",
+                  "whitespace-nowrap text-[14px] font-medium transition-colors xl:text-[14.5px]",
                   active ? "text-gold-600 dark:text-gold-400" : "text-ink-700 hover:text-ink-900 dark:text-sand-200 dark:hover:text-sand-50"
                 )}
               >
-                {link.label}
+                {link.navLabel}
               </Link>
             );
           })}
@@ -58,9 +58,11 @@ export function Header() {
           <ThemeToggle className="hidden h-10 w-10 items-center justify-center rounded-full border border-ink-900/15 text-ink-700 transition-colors hover:border-gold-500 hover:text-gold-600 dark:border-sand-100/15 dark:text-sand-200 dark:hover:text-gold-400 sm:flex" />
           <Link
             href="/enquiry"
-            className="hidden rounded-full bg-forest-900 px-6 py-3 text-[14px] font-medium text-sand-50 transition-colors hover:bg-forest-800 dark:bg-gold-500 dark:text-forest-950 dark:hover:bg-gold-400 sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-full bg-forest-900 px-5 py-3 text-[14px] font-medium text-sand-50 transition-colors hover:bg-forest-800 dark:bg-gold-500 dark:text-forest-950 dark:hover:bg-gold-400 sm:inline-flex lg:px-4 xl:px-6"
           >
-            Request a Trade Consultation
+            <span className="lg:hidden">Request a Trade Consultation</span>
+            <span className="hidden lg:inline xl:hidden">Request Consultation</span>
+            <span className="hidden xl:inline">Request a Trade Consultation</span>
           </Link>
           <button
             type="button"
